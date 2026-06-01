@@ -82,6 +82,7 @@ const waterGarden = (name) => {
 }
 
 const doSummerChores = async (name) => {
+    try {
     const taskOne = await mowYard(name);
     console.log(taskOne);
     const taskTwo = await weeEat(name);
@@ -93,6 +94,10 @@ const doSummerChores = async (name) => {
     const taskFive = await waterGarden(name);
     console.log(taskFive);
     console.log(`${name} finished all their chores!`);
+    }
+    catch (error) {
+        console.log(error)
+    }
 }
 
 doSummerChores('cooper')
