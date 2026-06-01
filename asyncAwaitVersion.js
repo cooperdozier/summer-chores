@@ -92,6 +92,7 @@ const doSummerChores = async (name) => {
     console.log(taskFour);
     const taskFive = await waterGarden(name);
     console.log(taskFive);
+    console.log(`${name} finished all their chores!`);
 }
 
 doSummerChores('cooper')
