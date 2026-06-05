@@ -70,6 +70,7 @@ function waterGarden(name, callback) {
        if (Math.random() > 0.30) {
         // Success
         console.log(`${name} finished watering the garden`)
+        callback(name)
        } else {
         // Fail
         console.log(`${name} fell asleep after collecting wood`)
