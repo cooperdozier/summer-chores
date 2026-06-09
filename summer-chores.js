@@ -11,13 +11,20 @@ function checkIfAsleep() {
     }
 }
 
-function mowYard(callback, name) {
-    task = 'mow yard';
-    setTimeout(() => {
-        console.log(`${name} mowed the yard.`);
-        callback;
-    }, 2000);
-    }
+function mowYard(name, callback) {
+  setTimeout(() => {
+    console.log("First step with param: " + name);
+    if (callback) callback(); // Run the next step
+  }, 2000);
+}
+
+// function mowYard(callback, name) {
+//     task = 'mow yard';
+//     setTimeout(() => {
+//         console.log(`${name} mowed the yard.`);
+//         callback;
+//     }, 2000);
+//     }
 
 function weedEat(callback, name) {
     task = 'weed eat';
@@ -36,7 +43,7 @@ function weedEat(callback, name) {
 function trimHedges(callback, name) {
     task = 'trim hedges';
         if (asleep = true) {
-        console.log(`${name} fell asleep after mowing the yard.`);
+        console.log(`${name} fell asleep after weed eating.`);
             return;
     } else {
     callback;
@@ -48,7 +55,7 @@ function trimHedges(callback, name) {
 function collectWood(callback, name) {
     task = 'collect wood';
         if (asleep = true) {
-        console.log(`${name} fell asleep after mowing the yard.`);
+        console.log(`${name} fell asleep after trimming the hedges`);
             return;
     } else {
     callback;
@@ -60,7 +67,7 @@ function collectWood(callback, name) {
 function waterGarden(callback, name) {
     task = 'water garden'
         if (asleep = true) {
-        console.log(`${name} fell asleep after mowing the yard.`);
+        console.log(`${name} fell asleep after collecting wood.`);
             return;
     } else {
     callback;
@@ -70,13 +77,13 @@ function waterGarden(callback, name) {
 }
 
 function doSummerChores(name) {
-    mowYard(
+    mowYard('cooper',
         weedEat(
             trimHedges(
                 collectWood(
                     waterGarden, 'cooper'
                 ), 'cooper'
-            ), 'cooper'), 'cooper');
+            ), 'cooper'));
     console.log(`${name} finished all their chores.`)
 }
 // function doSummerChores(name) {
